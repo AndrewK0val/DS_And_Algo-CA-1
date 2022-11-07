@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.gluonhq.charm.glisten.control.Icon?>-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="519.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment1_v2.JewelleryStoreController">
+   <children>
+      <TilePane alignment="TOP_CENTER" layoutX="-1.0" layoutY="53.0" orientation="VERTICAL" prefHeight="470.0" prefWidth="214.0" style="-fx-padding: 20px;">
+         <children>
+            <Button mnemonicParsing="false" text="Button" />
+            <Button contentDisplay="CENTER" mnemonicParsing="false" styleClass="leftMenu" stylesheets="@stylesheet1.css" text="Add Display Tray" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <TilePane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </TilePane.margin>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </TilePane>
+      <Separator layoutX="209.0" layoutY="2.0" orientation="VERTICAL" prefHeight="760.0" prefWidth="10.0" />
+      <SplitPane dividerPositions="0.3302664974619289, 0.5682106598984771" layoutX="217.0" layoutY="1.0" orientation="VERTICAL" prefHeight="760.0" prefWidth="808.0">
+        <items>
+            <AnchorPane prefHeight="214.0" prefWidth="646.0">
+               <children>
+                  <SplitPane layoutX="-6.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="808.0">
+                    <items>
+                        <HBox alignment="CENTER" prefHeight="150.0" prefWidth="807.0">
+                           <children>
+                              <ImageView fitHeight="49.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Lidl-Logo.svg.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jewellery Department" textAlignment="CENTER" wrappingWidth="309.44992876052856">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="28.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                    </items>
+                  </SplitPane>
+                  <ListView fx:id="newListView" layoutX="-6.0" layoutY="49.0" prefHeight="278.0" prefWidth="814.0" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="207.0" prefWidth="810.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="218.0" prefWidth="810.0">
+               <children>
+                  <SplitMenuButton fx:id="caseType" layoutX="419.0" layoutY="17.0" mnemonicParsing="false" text="Case Type" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </SplitMenuButton>
+                  <Button layoutX="14.0" layoutY="16.0" mnemonicParsing="false" text="Delete Display case" />
+                  <Button layoutX="167.0" layoutY="16.0" mnemonicParsing="false" onAction="#addDisplayCase" text="Add Display Case" />
+                  <Label layoutX="388.0" layoutY="58.0" />
+                  <ToggleButton layoutX="302.0" layoutY="16.0" mnemonicParsing="false" text="lights" />
+                  <TextField fx:id="txtName" layoutX="14.0" layoutY="76.0" style="-fx-background-color: #b4bdbf; -fx-border-radius: 8px;" stylesheets="@stylesheet1.css" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+
+   </children>
+</AnchorPane>
