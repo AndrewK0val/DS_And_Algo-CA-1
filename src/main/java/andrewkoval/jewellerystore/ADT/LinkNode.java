@@ -1,10 +1,10 @@
 package andrewkoval.jewellerystore.ADT;
 
-public class LinkNode {
+public class LinkNode<T> {
 
-    public LinkNode next=null;
-    public Object contents; //ADT reference!
-    public Object getContents() { return contents; }
-    public void setContents(Object c) { contents=c; }
+    public LinkNode<T> next=null;
+    public T contents; //ADT reference!
+    public T getContents() { return contents; }
+    public void setContents(T c) { contents=c; }
 
 }

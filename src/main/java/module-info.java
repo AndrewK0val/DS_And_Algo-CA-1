@@ -10,6 +10,7 @@ module andrewkoval.jewellerystore {
     requires org.kordamp.bootstrapfx.core;
     //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires xstream;
 
     opens andrewkoval.jewellerystore to javafx.fxml;
     opens andrewkoval.jewellerystore.Controllers  to  javafx.fxml;

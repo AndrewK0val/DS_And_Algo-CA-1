@@ -7,30 +7,44 @@ import andrewkoval.jewellerystore.Driver;
 public class DisplayCase {
 
 
+
+
     private String caseID;
-    private boolean caseType;
+    private String caseType;
     private boolean isCaseLit;
 
-    DisplayTrayLinkedList trays = new DisplayTrayLinkedList();
+    public DisplayTrayLinkedList trays;
 
 
-    public DisplayCase(String caseID, boolean caseType, boolean isCaseLit)
+//    public String caseTypeToString(boolean caseType)
+//    {
+//        if(caseType)
+//        {
+//            return "Wall Mounted";
+//        }
+//        return "Free Standing";
+//    }
+
+
+    public DisplayCase(String caseID, String caseType, boolean isCaseLit)
     {
         setCaseID(caseID);
         setCaseType(caseType);
         setIsCaseLit(isCaseLit);
+
+        this.trays = new DisplayTrayLinkedList();
     }
 
 
 
 
-    public void setCaseType(boolean caseType)
+    public void setCaseType(String caseType)
     {
         this.caseType = caseType;
     }
 
 
-    public boolean getCaseType()
+    public String getCaseType()
     {
         return caseType;
     }
@@ -47,10 +61,15 @@ public class DisplayCase {
 
     @Override
     public String toString() {
-        return "DisplayCase{" +
-                "Case ID='" + caseID + "Case Type" + caseType + "Lighting" + isCaseLit + '\'' +
-                '}';
+        return
+          "                    " +caseID + "                   " + caseType + "                      " + isCaseLit;
     }
+
+//    public String toString() {
+//        return
+//                "Case ID=" + caseID + "Case Type" + caseType + "Lighting" + isCaseLit + '\'' +
+//                        '}';
+//    }
 
 
 
@@ -93,28 +112,29 @@ public class DisplayCase {
 
 
 
-    public void addDisplayTray()
-    {
-//        String id = txtName.getText();
+//    public void addDisplayTray()
+//    {
+////        String id = txtName.getText();
+//
+//        String trayID = null;
+//        String materialColor = null;
+//        String dimensions = "";
+//
+//        DisplayTray dt = new DisplayTray(trayID,materialColor,dimensions);
+//       // Driver.displayTrayLinkList.addElement(dt);
+//      //  System.out.println(Driver.displayTrayLinkList.head.getContents());
+////        newListView.getItems().add(dc);
+//
+//
+//    }
 
-        String trayID = null;
-        String materialColor = null;
-        int dimensions = 0;
-
-        DisplayTray dt = new DisplayTray(trayID,materialColor,dimensions);
-       // Driver.displayTrayLinkList.addElement(dt);
-      //  System.out.println(Driver.displayTrayLinkList.head.getContents());
-//        newListView.getItems().add(dc);
-
-
-    }
-
-    public String caseTypeInStringFormat(){
-        if(getCaseType()){
-            return "Free Standing";
-        }
-        return "wall mounted";
-    }
+//    public String caseTypeInStringFormat(){
+//        if(getCaseType() == true){
+//            return "Free Standing";
+//        }
+//        else
+//             return "wall mounted";
+//    }
 
 
 //    while(temp != null)

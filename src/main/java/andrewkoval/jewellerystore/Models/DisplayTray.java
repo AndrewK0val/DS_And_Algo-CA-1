@@ -1,5 +1,7 @@
 package andrewkoval.jewellerystore.Models;
 
+import andrewkoval.jewellerystore.ADT.JewelleryItemLinkedList;
+
 public class DisplayTray {
 
     public DisplayTray nextTray;
@@ -7,11 +9,17 @@ public class DisplayTray {
 
     private String trayID;
     private String materialColor;
-    private int dimensions;
+    private String dimensions;
 
-    public DisplayTray(String trayID, String materialColor, int dimensions )
+    public JewelleryItemLinkedList items;
+
+    public DisplayTray(String trayID, String materialColor, String dimensions )
     {
+    setDimensions(dimensions);
+    setTrayID(trayID);
+    setMaterialColor(materialColor);
 
+    this.items = new JewelleryItemLinkedList();
     }
 
 
@@ -25,7 +33,7 @@ public class DisplayTray {
         return materialColor;
     }
 
-    public int getDimensions(){
+    public String getDimensions(){
         return dimensions;
     }
 
@@ -34,7 +42,7 @@ public class DisplayTray {
     public void setMaterialColor(String color){
 //    dont forget validation
 //      if(color.contains(range of colors)) {
-//          this.materialColor = color;
+          this.materialColor = color;
 //      }
 
     }
@@ -51,11 +59,19 @@ public class DisplayTray {
     }
 
 
-    public void setDimensions(int dimensions){
+    public void setDimensions(String dimensions){
         this.dimensions = dimensions;
         //define min and max dimensions for validation
     }
 
+
+@Override
+    public String toString()
+    {
+    return "ID: " + trayID + "  Material Color: " + materialColor + "Dimensions: " + dimensions;
+
+
+    }
 
 
 }

@@ -1,0 +1,9 @@
+add remove function to each linked lists
+
+get treeview to work
+
+instead of having an input field for ID for case and tray, implement auto increment faeture
+
+implement validation to ensure each id is unique
+
+solve nullpointerexception when you click on an item in displayTrayListViewInItemTab

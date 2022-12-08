@@ -13,7 +13,7 @@ public class Driver extends Application {
 
 
 
-    public static DisplayCaseLinkedList displayCaseLinkList = new DisplayCaseLinkedList();
+    public static DisplayCaseLinkedList cases = new DisplayCaseLinkedList();
     public static DisplayTrayLinkedList displayTrayLinkList = new DisplayTrayLinkedList();
 
     public void start(Stage stage) throws IOException {
