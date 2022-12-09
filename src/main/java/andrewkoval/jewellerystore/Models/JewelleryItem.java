@@ -3,12 +3,14 @@ package andrewkoval.jewellerystore.Models;
 import andrewkoval.jewellerystore.ADT.JewelleryItemMaterialLinkedList;
 
 public class JewelleryItem {
-    private String imageURL, targetGender, type, name, description;
+    private String imageURL, targetGender, type, brandName, description;
     private float retailPrice;
+
     private int quantity;
+
     public JewelleryItemMaterialLinkedList materials;
     //    name, description, type (ring, watch, necklace, etc. ), target gender, image(url), retail price
-    public JewelleryItem(String name, String description, String type, String imageURL, float retailPrice, String targetGender) {
+    public JewelleryItem(String name, String description, String type, String imageURL, float retailPrice, String targetGender, int quantity) {
         setName(name);
         setDescription(description);
         setType(type);
@@ -16,15 +18,23 @@ public class JewelleryItem {
         setImageURL(imageURL);
         setRetailPrice(retailPrice);
         setTargetGender(targetGender);
+        setQuantity(quantity);
 
         this.materials = new JewelleryItemMaterialLinkedList();
     }
 
-
     public String getName()
     {
-        return name;
+        return brandName;
 
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 
@@ -70,7 +80,7 @@ public class JewelleryItem {
     }
 
     public void setName(String name){
-        this.name = name;
+        this.brandName = name;
     }
 
     public void setTargetGender(String targetGender)
@@ -80,10 +90,16 @@ public class JewelleryItem {
 //        }
     }
 
+    public void limitDescLenghtTo100Chars()
+    {
+
+    }
+
 
     public String toString()
     {
-    return"                 "+ name + "         " + type + "            "  + targetGender + "        " + retailPrice + "         " + imageURL;
+    return
+    brandName + "  " + type + "    "  + targetGender + "  |   €" + retailPrice + "  |   URL: " + imageURL +"  |  Quantity" + quantity +"\n " + description;
 
     }
 

@@ -12,9 +12,8 @@ import java.io.IOException;
 public class Driver extends Application {
 
 
-
     public static DisplayCaseLinkedList cases = new DisplayCaseLinkedList();
-    public static DisplayTrayLinkedList displayTrayLinkList = new DisplayTrayLinkedList();
+
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Driver.class.getResource("view2.fxml"));

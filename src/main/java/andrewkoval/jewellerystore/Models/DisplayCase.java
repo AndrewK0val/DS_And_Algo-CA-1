@@ -9,7 +9,7 @@ public class DisplayCase {
 
 
 
-    private String caseID;
+    private int caseID;
     private String caseType;
     private boolean isCaseLit;
 
@@ -26,7 +26,7 @@ public class DisplayCase {
 //    }
 
 
-    public DisplayCase(String caseID, String caseType, boolean isCaseLit)
+    public DisplayCase(int caseID, String caseType, boolean isCaseLit)
     {
         setCaseID(caseID);
         setCaseType(caseType);
@@ -96,7 +96,7 @@ public class DisplayCase {
 
     }
 
-    public void setCaseID(String caseID) {
+    public void setCaseID(int caseID) {
 //        for(go through each case){
 //                if (new caseID does not match any other ID){
 //                    this.caseID = caseID;
@@ -105,7 +105,7 @@ public class DisplayCase {
         this.caseID=caseID;
     }
 
-    public String getCaseID()
+    public int getCaseID()
     {
         return caseID;
     }

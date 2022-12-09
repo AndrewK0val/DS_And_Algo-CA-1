@@ -17,14 +17,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-import com.thoughtworks.xstream.*;
+import com.thoughtworks.xstream.XStream;
 import javafx.scene.layout.AnchorPane;
 public class JewelleryStoreController implements Initializable {
     @FXML public TextArea JewelleryItemDescriptionInput;
     @FXML private AnchorPane overviewItemMenu;
-    @FXML private TextField txtID, searchStock, displayTrayIdInput, JewelleryItemPriceInput, JewelleryItemImageUrlInput, JewelleryItemNameInput, JewelleryItemQuantityInput;
-    @FXML private ComboBox lightingSelection, caseTypeSelection, displayTrayMatColourComboBox, displayTrayDimensionsComboBox, JewelleryItemTypeComboBox, JewelleryItemTargetGenderComboBox;
-    @FXML private ListView<DisplayCase> displayCaseListViewInCaseTab, displayCaseListViewInTrayTab;
+    @FXML private TextField searchStock, JewelleryItemPriceInput, JewelleryItemImageUrlInput, JewelleryItemQuantityInput;
+    @FXML private ComboBox lightingSelection, caseTypeSelection,JewelleryItemBrandNameComboBox,displayTrayMatColourComboBox, displayTrayDimensionsComboBox, JewelleryItemTypeComboBox, JewelleryItemTargetGenderComboBox;
+    @FXML private ListView<DisplayCase> displayCaseListViewInTrayTab;
     @FXML private ListView<DisplayTray> displayTrayListView, displayTrayListViewInItemTab;
     @FXML private TreeView<String> overviewTreeview;
     @FXML private Label displayCaseIdInTrayTab, JewelleryItemIdInItemsTab;
@@ -45,19 +45,20 @@ public class JewelleryStoreController implements Initializable {
         displayTrayDimensionsComboBox.getItems().addAll("100x400", "200x400", "300x600", "300x800");
         JewelleryItemTypeComboBox.getItems().addAll("Watch", "Ring", "Earrings", "Necklace", "Bracelet", "Piercing");
         JewelleryItemTargetGenderComboBox.getItems().addAll("Male", "Female", "Unisex");
-
+        JewelleryItemBrandNameComboBox.getItems().addAll("Svarowski", "Bea Bongiasca", "Pandora", "Sauer", "Fernando Jorge", "Ondyn", "Viltier", "Chanel", "Cartier");
 
 //      TreeItem<String> rootItem = new TreeItem<>(Driver.displayCaseLinkList);
 //      overviewTreeview.setRoot(rootItem);
-        displayTrayIdInput.getText();
-        txtID.getText();
+
+//        txtID.getText();
         overviewItemMenu.setVisible(false);
     }
 
 
 
         public void addDisplayCase() {
-            String id = txtID.getText();
+//            String id = txtID.getText();
+            int id = totalCases()+1;
             String lit = lightingSelection.getSelectionModel().getSelectedItem().toString();
             boolean isLit=false;
             if (lit.equals("Lit")) {
@@ -67,12 +68,12 @@ public class JewelleryStoreController implements Initializable {
             DisplayCase dc = new DisplayCase(id,type,isLit);
             Driver.cases.addElement(dc);
             System.out.println(Driver.cases.head.getContents());
-            Driver.cases.addToListView(displayCaseListViewInCaseTab);
+//            Driver.cases.addToListView(displayCaseListViewInCaseTab);
             Driver.cases.addToListView(displayCaseListViewInTrayTab);
         }
 
         public void addDisplayTray() {
-            String id = displayTrayIdInput.getText();
+            int id = totaTrays() + 1;
             String dimensions = displayTrayDimensionsComboBox.getSelectionModel().getSelectedItem().toString();
             String matcol = displayTrayMatColourComboBox.getSelectionModel().getSelectedItem().toString();
 
@@ -84,15 +85,18 @@ public class JewelleryStoreController implements Initializable {
         }
 
         public void addJewelleryItem() {
-            String name = JewelleryItemNameInput.getText();
+            String quantityInStringFormat = JewelleryItemQuantityInput.getText();
+            int quantity = Integer.valueOf(quantityInStringFormat);
+            String brandName = JewelleryItemBrandNameComboBox.getSelectionModel().getSelectedItem().toString();
             String description = JewelleryItemDescriptionInput.getText();
             String type = JewelleryItemTypeComboBox.getSelectionModel().getSelectedItem().toString();
             String imageURL = JewelleryItemImageUrlInput.getText();
-            float retailPrice = 0; //figure out how to convert a number in a textfield input to a float
+            String retailPriceStringFormat = JewelleryItemPriceInput.getText(); //figure out how to convert a number in a textfield input to a float
+            float retailPrice = Float.valueOf(retailPriceStringFormat);
             String targetGender = JewelleryItemTargetGenderComboBox.getSelectionModel().getSelectedItem().toString();
 
             // calling constructor for jewellery item
-            JewelleryItem ji = new JewelleryItem(name, description, type, imageURL, retailPrice, targetGender);
+            JewelleryItem ji = new JewelleryItem(brandName, description, type, imageURL, retailPrice, targetGender, quantity);
             chosenTray.items.addElement(ji);
     //        // System.out.println(Driver.displayTrayLinkList.head.getContents());
             chosenTray.items.addToListView(JewelleryItemListView);
@@ -111,19 +115,26 @@ public class JewelleryStoreController implements Initializable {
         {
             TreeItem rootItem = new TreeItem("display Cases");
             LinkNode<DisplayCase> temp = Driver.cases.head;
-            while(temp!=null)
-            {
+
+            while(temp!=null){
                 LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
                 TreeItem dc= new TreeItem(temp.getContents().toString());
+
                 while(temp2!=null){
+                    LinkNode<JewelleryItem> temp3 = temp2.getContents().items.head;
                     TreeItem dt = new TreeItem(temp2.getContents().toString());
+
+                    while(temp3!=null){
+                        TreeItem ji = new TreeItem(temp3.getContents().toString());
+                        dt.getChildren().add(ji); //I found out that the order of  these two lines is extremely inportant
+                        temp3=temp3.next;
+                    }
                     dc.getChildren().add(dt);
                     temp2=temp2.next;
                 }
-            rootItem.getChildren().add(dc);
-            temp=temp.next;
+                rootItem.getChildren().add(dc);
+                temp=temp.next;
             }
-            //TreeView overviewTreeview = new TreeView();
             overviewTreeview.setRoot(rootItem);
             overviewTreeview.setShowRoot(false);
         }
@@ -180,58 +191,70 @@ public class JewelleryStoreController implements Initializable {
             }
         }
 
-        public void displayCaseIdAutoIncrement()
+        public int totalCases()
         {
-
-
-
-        }
-
-        public void displayTrayIdAutoIncrement()
-        {
-            LinkNode<DisplayTray> temp = Driver.cases.head;
-            while(temp!=null)
+        LinkNode<DisplayCase> temp = Driver.cases.head;
+        int count = 0;
+            while(temp != null)
             {
-
-
+                count++;
+                temp = temp.next;
             }
+         return count;
         }
 
+        public int totaTrays()
+        {
+            LinkNode<DisplayCase> temp = Driver.cases.head;
+            int count = 0;
+            while(temp != null)
+            {
+                LinkNode<JewelleryItem> temp2 = temp.getContents().trays.head;
+                while(temp2!=null){
+                temp2=temp2.next;
+                count++;
+                }
+                temp = temp.next;
+            }
+            return count;
+        }
+
+
+        public void searchItem(String brandName, String type, float retailPrice)
+        {
+
+
+        }
 
     public void save() throws Exception {
             XStream xstream = new XStream(new DomDriver());
             ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("displayCases.xml"));
-            out.writeObject(displayCase);
-            out.close();
 
-            ObjectOutputStream out2 = xstream.createObjectOutputStream(new FileWriter("displayTrays.xml"));
-            out.writeObject(displayTray);
-            out.close();
 
-            ObjectOutputStream out3 = xstream.createObjectOutputStream(new FileWriter("JewelleryItems.xml"));
-            out.writeObject(jewelleryItem);
+            out.writeObject(Driver.cases.head);
             out.close();
-            //dont forget to include material
         }
 
 
 
-
-
-
-        @SuppressWarnings("unchecked")
+//        @SuppressWarnings("unchecked")
         public void load() throws Exception {
             //setting up the xstream object with default security and the above classes
+            Class<?>[] classes = new Class[] {DisplayCase.class, LinkNode.class, DisplayTray.class, JewelleryItem.class};
             XStream xstream = new XStream(new DomDriver());
-           // XStream.setupDefaultSecurity(xstream);
+            XStream.setupDefaultSecurity(xstream);
 
             // Not sure if I should have this, no idea how security works in xstream
-            //xstream.allowTypes(classes);
+            xstream.allowTypes(classes);
 //        xstream.addPermission(AnyTypePermission.ANY);
 
             //doing the actual serialisation to an XML file
-            ObjectInputStream is = xstream.createObjectInputStream(new FileReader("displayCase.xml"));
+            ObjectInputStream is = xstream.createObjectInputStream(new FileReader("displayCases.xml"));
+            Driver.cases.head = (LinkNode) is.readObject();
             is.close();
+            Driver.cases.addToListView(displayCaseListViewInTrayTab);
+//
+
         }
 
 

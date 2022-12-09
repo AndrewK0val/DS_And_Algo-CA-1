@@ -12,8 +12,11 @@ module andrewkoval.jewellerystore {
     requires com.almasb.fxgl.all;
     requires xstream;
 
-    opens andrewkoval.jewellerystore to javafx.fxml;
+    opens andrewkoval.jewellerystore to javafx.fxml, xstream;
+
     opens andrewkoval.jewellerystore.Controllers  to  javafx.fxml;
     exports andrewkoval.jewellerystore;
     exports andrewkoval.jewellerystore.Controllers to  javafx.fxml;
+    exports andrewkoval.jewellerystore.ADT to xstream;
+    opens andrewkoval.jewellerystore.Models to  xstream;
 }

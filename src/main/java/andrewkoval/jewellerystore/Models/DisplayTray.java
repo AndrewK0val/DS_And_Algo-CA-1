@@ -7,13 +7,13 @@ public class DisplayTray {
     public DisplayTray nextTray;
     public JewelleryItem firstJI;
 
-    private String trayID;
+    private int trayID;
     private String materialColor;
     private String dimensions;
 
     public JewelleryItemLinkedList items;
 
-    public DisplayTray(String trayID, String materialColor, String dimensions )
+    public DisplayTray(int trayID, String materialColor, String dimensions )
     {
     setDimensions(dimensions);
     setTrayID(trayID);
@@ -23,7 +23,7 @@ public class DisplayTray {
     }
 
 
-    public String getTrayID(){
+    public int getTrayID(){
 
         return trayID;
     }
@@ -48,7 +48,7 @@ public class DisplayTray {
     }
 
 
-    public void setTrayID(String ID){
+    public void setTrayID(int ID){
         // one letter followed by a number e.g. A12
 //    if(ID.startsWith(char) && ID.contains(int))
 //        {
