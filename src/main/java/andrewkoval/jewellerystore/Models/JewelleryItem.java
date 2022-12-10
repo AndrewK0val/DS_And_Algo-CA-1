@@ -99,7 +99,7 @@ public class JewelleryItem {
     public String toString()
     {
     return
-    brandName + "  " + type + "    "  + targetGender + "  |   €" + retailPrice + "  |   URL: " + imageURL +"  |  Quantity" + quantity +"\n " + description;
+    brandName + "  " + type + "    |    "  + targetGender + "  |   €" + retailPrice + "  |   URL: " + imageURL +"  |  Quantity" + quantity +"\n " + description;
 
     }
 

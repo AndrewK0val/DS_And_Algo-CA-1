@@ -26,14 +26,12 @@ public class JewelleryStoreController implements Initializable {
     @FXML private ComboBox lightingSelection, caseTypeSelection,JewelleryItemBrandNameComboBox,displayTrayMatColourComboBox, displayTrayDimensionsComboBox, JewelleryItemTypeComboBox, JewelleryItemTargetGenderComboBox;
     @FXML private ListView<DisplayCase> displayCaseListViewInTrayTab;
     @FXML private ListView<DisplayTray> displayTrayListView, displayTrayListViewInItemTab;
-    @FXML private TreeView<String> overviewTreeview;
+    @FXML private TreeView<Object> overviewTreeview;
     @FXML private Label displayCaseIdInTrayTab, JewelleryItemIdInItemsTab;
     @FXML private ListView<JewelleryItem> JewelleryItemListView;
     private DisplayCase chosenCase;
     private DisplayTray chosenTray;
-    public DisplayCase displayCase;
-    public DisplayTray displayTray;
-    public JewelleryItem jewelleryItem;
+
 
     @Override
      public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,7 +39,7 @@ public class JewelleryStoreController implements Initializable {
 //      newListView.getItems().addAll(n);
         lightingSelection.getItems().addAll("Lit", "Unlit");
         caseTypeSelection.getItems().addAll("Free Standing", "Wall mounted");
-        displayTrayMatColourComboBox.getItems().addAll("Burgundy", "Teal", "While", "Off-white", "Crimson Red", "Silver", "Gray", "Jet blacK");
+        displayTrayMatColourComboBox.getItems().addAll("Burgundy", "Teal", "White", "Off-white", "Crimson Red", "Silver", "Gray", "Jet blacK");
         displayTrayDimensionsComboBox.getItems().addAll("100x400", "200x400", "300x600", "300x800");
         JewelleryItemTypeComboBox.getItems().addAll("Watch", "Ring", "Earrings", "Necklace", "Bracelet", "Piercing");
         JewelleryItemTargetGenderComboBox.getItems().addAll("Male", "Female", "Unisex");
@@ -111,21 +109,87 @@ public class JewelleryStoreController implements Initializable {
 //        }
 
 
-        public void treeViewDrillDown()
+    public void searchItem(String searchTerm, String value)
+    {
+        LinkNode<DisplayCase> temp = Driver.cases.head;
+        while(temp!=null){
+            LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
+            while(temp2!=null){
+
+//            if(temp2.getContents().items.head)
+            {
+
+            }
+//                if (searchTerm.contains("price"))
+//                {
+//                    if(value.equals(temp2.getContents().items.head)){
+//
+//                    }
+//                }
+//                if(searchTerm.contains("brand"))
+//                {
+//
+//                }
+//                if(searchTerm.contains("type"))
+//                {
+//
+//                }
+//                if(searchTerm.contains("gender"))
+//                {
+//
+//                }
+                temp2=temp2.next;
+            }
+            temp=temp.next;
+        }
+    }
+
+
+
+    public void deleteJewelleryItem() {
+    overviewTreeview.getSelectionModel().getSelectedItem();
+        LinkNode<DisplayCase> temp = Driver.cases.head;
+
+        while(temp!=null){
+            LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
+
+
+            while(temp2!=null){
+                LinkNode<JewelleryItem> temp3 = temp2.getContents().items.head;
+
+
+                while(temp3!=null){
+                    if(overviewTreeview.getSelectionModel().getSelectedItem().equals(temp3.next))
+                    {
+
+                    }
+                }
+
+                    temp3=temp3.next;
+                }
+
+                temp2=temp2.next;
+            }
+            temp=temp.next;
+
+    }
+
+
+    public void treeViewDrillDown()
         {
-            TreeItem rootItem = new TreeItem("display Cases");
+            TreeItem<Object> rootItem = new TreeItem("display Cases");
             LinkNode<DisplayCase> temp = Driver.cases.head;
 
             while(temp!=null){
                 LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
-                TreeItem dc= new TreeItem(temp.getContents().toString());
+                TreeItem<Object> dc= new TreeItem(temp.getContents());
 
                 while(temp2!=null){
                     LinkNode<JewelleryItem> temp3 = temp2.getContents().items.head;
-                    TreeItem dt = new TreeItem(temp2.getContents().toString());
+                    TreeItem<Object> dt = new TreeItem(temp2.getContents());
 
                     while(temp3!=null){
-                        TreeItem ji = new TreeItem(temp3.getContents().toString());
+                        TreeItem<Object> ji = new TreeItem(temp3.getContents());
                         dt.getChildren().add(ji); //I found out that the order of  these two lines is extremely inportant
                         temp3=temp3.next;
                     }
@@ -149,29 +213,6 @@ public class JewelleryStoreController implements Initializable {
             chosenTray = displayTrayListViewInItemTab.getSelectionModel().getSelectedItem();
             JewelleryItemIdInItemsTab.setText("Tray: " + chosenTray.getTrayID());
             chosenTray.items.addToListView(JewelleryItemListView);
-        }
-
-        public void chooseItem(){
-
-
-        }
-
-
-
-        public String viewAllStock()
-        {
-            overviewItemMenu.setVisible(true);
-//        for(every display case)
-//        {
-//        displayCase.listAllDispvlayTrays();
-//        }
-//      Output should look like a tree
-//
-//  Case-      case ID, case Type, Lighting
-//  Tray-          Tray ID, Inlay material color, tray dimensions (cm)
-//  Jewellery-         name, description, type (ring, watch, necklace, etc. ), target gender, image(url), retail price
-//  Material/component-      name/type(gold, platinum, diamond,emerald,silver,ruby,), description, quantity, quality(karat, carat)
-            return "";
         }
 
 
@@ -265,17 +306,6 @@ public class JewelleryStoreController implements Initializable {
         }
 
 
-    // public DisplayCase next = null;
-
-    // public DisplayCase head;
-
-    // DisplayCase temp=head;
-
-//public void initialize()
-//{
-//    lightingSelection.getItems().addAll("Lit", "Unlit");
-//    caseTypeSelection.getItems().addAll("Free Standing", "Wall mounted");
-//}
 
     }
 

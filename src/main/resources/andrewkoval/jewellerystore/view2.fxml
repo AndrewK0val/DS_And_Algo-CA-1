@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="837.0" prefWidth="1195.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andrewkoval.jewellerystore.Controllers.JewelleryStoreController">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="837.0" prefWidth="1195.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andrewkoval.jewellerystore.Controllers.JewelleryStoreController">
    <children>
       <SplitPane dividerPositions="0.0671462829736211" orientation="VERTICAL" prefHeight="836.0" prefWidth="1195.0">
         <items>
@@ -68,7 +68,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="690.0" prefWidth="923.0" style="-fx-border-width: 4px; -fx-border-color: black; -fx-background-color: #fff000;">
                                  <children>
-                                    <TreeView fx:id="overviewTreeview" layoutX="14.0" layoutY="14.0" prefHeight="557.0" prefWidth="403.0" style="-fx-background-color: #fff000; -fx-border-width: 4px; -fx-border-color: e60a14; -fx-border-radius: 8px;" />
+                                    <TreeView fx:id="overviewTreeview" layoutX="14.0" layoutY="14.0" prefHeight="557.0" prefWidth="403.0" style="-fx-background-color: #fff000; -fx-border-width: 4px; -fx-border-color: e60a14; -fx-border-radius: 8px;" stylesheets="@stylesheet1.css" />
                                     <Button fx:id="viewAllStock" layoutX="106.0" layoutY="628.0" mnemonicParsing="false" onAction="#treeViewDrillDown" prefHeight="33.0" prefWidth="95.0" text="View All Stock" />
                                     <TextField fx:id="searchStock" layoutX="220.0" layoutY="627.0" prefHeight="36.0" prefWidth="129.0" promptText="Search Item" />
                                     <Button fx:id="deleteItem" layoutX="370.0" layoutY="629.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="142.0" text="Delete Selected Item" />
@@ -118,11 +118,11 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff000; -fx-border-color: black; -fx-border-width: 4px;">
                                  <children>
-                                    <ListView fx:id="displayCaseListViewInTrayTab" fixedCellSize="-2.0" layoutX="30.0" layoutY="55.0" onMouseClicked="#chooseCase" prefHeight="441.0" prefWidth="402.0" style="-fx-border-color: e60a14; -fx-border-width: 4px; -fx-border-radius: 8px;" />
-                                    <ListView fx:id="displayTrayListView" layoutX="493.0" layoutY="55.0" prefHeight="486.0" prefWidth="402.0" style="-fx-border-color: e60a14; -fx-border-width: 4px; -fx-border-radius: 8px;" />
+                                    <ListView id="lv" fx:id="displayCaseListViewInTrayTab" fixedCellSize="-2.0" layoutX="30.0" layoutY="55.0" onMouseClicked="#chooseCase" prefHeight="441.0" prefWidth="402.0" style="-fx-border-color: e60a14; -fx-border-width: 4px; -fx-border-radius: 8px;" stylesheets="@stylesheet1.css" />
+                                    <ListView id="lv" fx:id="displayTrayListView" layoutX="493.0" layoutY="55.0" prefHeight="486.0" prefWidth="402.0" style="-fx-border-color: e60a14; -fx-border-width: 4px; -fx-border-radius: 8px;" stylesheets="@stylesheet1.css" />
                                     <Button layoutX="645.0" layoutY="614.0" mnemonicParsing="false" onAction="#addDisplayTray" prefHeight="39.0" prefWidth="97.0" text="Add Tray" />
                                     <ComboBox fx:id="displayTrayMatColourComboBox" layoutX="548.0" layoutY="564.0" prefHeight="31.0" prefWidth="130.0" promptText="Material Colour" />
-                                    <ComboBox fx:id="displayTrayDimensionsComboBox" layoutX="709.0" layoutY="564.0" prefHeight="31.0" prefWidth="130.0" promptText="Dimensions" />
+                                    <ComboBox fx:id="displayTrayDimensionsComboBox" layoutX="709.0" layoutY="564.0" prefHeight="31.0" prefWidth="154.0" promptText="Dimensions (mm)" />
                                     <Line endX="-100.0" endY="714.5999755859375" layoutX="563.0" layoutY="7.0" startX="-100.0" startY="-1.2000017166137695" strokeWidth="4.0" />
                                     <Label fx:id="displayCaseIdInTrayTab" alignment="CENTER" contentDisplay="CENTER" layoutX="618.0" layoutY="14.0" prefHeight="39.0" prefWidth="120.0" text="Case: " textOverrun="CLIP">
                                        <font>

@@ -59,10 +59,19 @@ public class DisplayCase {
         this.isCaseLit = isCaseLit;
     }
 
+
+    public String caseLightingBooleanToStringFormat()
+    {
+    if(isCaseLit==true){
+        return "Lit";
+    }
+    else
+    return "Unlit";
+    }
     @Override
     public String toString() {
         return
-          "                    " +caseID + "                   " + caseType + "                      " + isCaseLit;
+          "Case:  " +caseID + "  |  " + caseType + "   |   " + caseLightingBooleanToStringFormat();
     }
 
 //    public String toString() {

@@ -68,7 +68,7 @@ public class DisplayTray {
 @Override
     public String toString()
     {
-    return "ID: " + trayID + "  Material Color: " + materialColor + "Dimensions: " + dimensions;
+    return "Tray: " + trayID + "  |  Color: " + materialColor + "   |   " + dimensions +"mm";
 
 
     }

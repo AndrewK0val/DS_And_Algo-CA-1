@@ -35,4 +35,13 @@ public class Material {
     public void setQuality(String quality) {
         this.quality = quality;
     }
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "material='" + material + '\'' +
+                ", weightInGrams=" + weightInGrams +
+                ", quality='" + quality + '\'' +
+                '}';
+    }
 }

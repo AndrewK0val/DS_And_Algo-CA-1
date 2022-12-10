@@ -2,3 +2,8 @@
     {
         margin: 20px;
     }
+
+
+#lv .list-cell {
+    -fx-alignment: center;
+}
