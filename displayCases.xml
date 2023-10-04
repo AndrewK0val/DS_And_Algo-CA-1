@@ -1,0 +1,173 @@
+<object-stream>
+  <andrewkoval.jewellerystore.ADT.LinkNode>
+    <next>
+      <next>
+        <contents class="andrewkoval.jewellerystore.Models.DisplayCase">
+          <caseID>1</caseID>
+          <caseType>Free Standing</caseType>
+          <isCaseLit>true</isCaseLit>
+          <trays>
+            <head>
+              <contents class="andrewkoval.jewellerystore.Models.DisplayTray">
+                <trayID>4</trayID>
+                <materialColor>White</materialColor>
+                <dimensions>300x600</dimensions>
+                <items>
+                  <head>
+                    <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                      <imageURL></imageURL>
+                      <targetGender>Female</targetGender>
+                      <type>Earrings</type>
+                      <brandName>Chanel</brandName>
+                      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                      <retailPrice>600.0</retailPrice>
+                      <quantity>2</quantity>
+                      <materials/>
+                    </contents>
+                  </head>
+                </items>
+              </contents>
+            </head>
+          </trays>
+        </contents>
+      </next>
+      <contents class="andrewkoval.jewellerystore.Models.DisplayCase">
+        <caseID>2</caseID>
+        <caseType>Free Standing</caseType>
+        <isCaseLit>false</isCaseLit>
+        <trays>
+          <head>
+            <next>
+              <contents class="andrewkoval.jewellerystore.Models.DisplayTray">
+                <trayID>2</trayID>
+                <materialColor>Off-white</materialColor>
+                <dimensions>300x600</dimensions>
+                <items>
+                  <head>
+                    <next>
+                      <next>
+                        <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                          <imageURL></imageURL>
+                          <targetGender>Female</targetGender>
+                          <type>Bracelet</type>
+                          <brandName>Fernando Jorge</brandName>
+                          <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                          <retailPrice>600.0</retailPrice>
+                          <quantity>4</quantity>
+                          <materials/>
+                        </contents>
+                      </next>
+                      <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                        <imageURL></imageURL>
+                        <targetGender>Female</targetGender>
+                        <type>Bracelet</type>
+                        <brandName>Sauer</brandName>
+                        <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                        <retailPrice>600.0</retailPrice>
+                        <quantity>4</quantity>
+                        <materials/>
+                      </contents>
+                    </next>
+                    <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                      <imageURL></imageURL>
+                      <targetGender>Unisex</targetGender>
+                      <type>Ring</type>
+                      <brandName>Sauer</brandName>
+                      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                      <retailPrice>600.0</retailPrice>
+                      <quantity>4</quantity>
+                      <materials/>
+                    </contents>
+                  </head>
+                </items>
+              </contents>
+            </next>
+            <contents class="andrewkoval.jewellerystore.Models.DisplayTray">
+              <trayID>3</trayID>
+              <materialColor>Silver</materialColor>
+              <dimensions>300x600</dimensions>
+              <items>
+                <head>
+                  <next>
+                    <next>
+                      <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                        <imageURL></imageURL>
+                        <targetGender>Female</targetGender>
+                        <type>Necklace</type>
+                        <brandName>Viltier</brandName>
+                        <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                        <retailPrice>300.0</retailPrice>
+                        <quantity>4</quantity>
+                        <materials/>
+                      </contents>
+                    </next>
+                    <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                      <imageURL></imageURL>
+                      <targetGender>Female</targetGender>
+                      <type>Necklace</type>
+                      <brandName>Viltier</brandName>
+                      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                      <retailPrice>400.0</retailPrice>
+                      <quantity>4</quantity>
+                      <materials/>
+                    </contents>
+                  </next>
+                  <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                    <imageURL></imageURL>
+                    <targetGender>Female</targetGender>
+                    <type>Piercing</type>
+                    <brandName>Ondyn</brandName>
+                    <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                    <retailPrice>400.0</retailPrice>
+                    <quantity>4</quantity>
+                    <materials/>
+                  </contents>
+                </head>
+              </items>
+            </contents>
+          </head>
+        </trays>
+      </contents>
+    </next>
+    <contents class="andrewkoval.jewellerystore.Models.DisplayCase">
+      <caseID>3</caseID>
+      <caseType>Wall mounted</caseType>
+      <isCaseLit>true</isCaseLit>
+      <trays>
+        <head>
+          <contents class="andrewkoval.jewellerystore.Models.DisplayTray">
+            <trayID>1</trayID>
+            <materialColor>Teal</materialColor>
+            <dimensions>200x400</dimensions>
+            <items>
+              <head>
+                <next>
+                  <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                    <imageURL></imageURL>
+                    <targetGender>Male</targetGender>
+                    <type>Ring</type>
+                    <brandName>Svarowski</brandName>
+                    <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                    <retailPrice>300.0</retailPrice>
+                    <quantity>4</quantity>
+                    <materials/>
+                  </contents>
+                </next>
+                <contents class="andrewkoval.jewellerystore.Models.JewelleryItem">
+                  <imageURL></imageURL>
+                  <targetGender>Male</targetGender>
+                  <type>Watch</type>
+                  <brandName>Svarowski</brandName>
+                  <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</description>
+                  <retailPrice>300.0</retailPrice>
+                  <quantity>4</quantity>
+                  <materials/>
+                </contents>
+              </head>
+            </items>
+          </contents>
+        </head>
+      </trays>
+    </contents>
+  </andrewkoval.jewellerystore.ADT.LinkNode>
+</object-stream>

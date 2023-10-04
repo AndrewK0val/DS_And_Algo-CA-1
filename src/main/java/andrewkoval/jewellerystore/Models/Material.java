@@ -38,10 +38,6 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Material{" +
-                "material='" + material + '\'' +
-                ", weightInGrams=" + weightInGrams +
-                ", quality='" + quality + '\'' +
-                '}';
+        return "Material: " + material + "    |   " + "Weight:  " + weightInGrams + "g    |    "  + quality + "karat" ;
     }
 }

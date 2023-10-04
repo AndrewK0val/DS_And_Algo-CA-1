@@ -58,7 +58,7 @@ public class JewelleryItem {
     return description;
     }
 
-    public  String getTypeO()
+    public  String getType()
     {
     return type;
     }

@@ -7,3 +7,37 @@
 #lv .list-cell {
     -fx-alignment: center;
 }
+
+
+/*#refreshStockButton, #addDisplayCase, #addDisplayTray{*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-weight: bold;*/
+/*    !*-fx-background-color: linear-gradient(#ff0000, #881200);*!*/
+
+/*    -fx-background-color: linear-gradient(#ffdbdb 1%, rgba(136, 18, 0, 0.65) 50%, #ff0000 100%);*/
+/*    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);*/
+/*}*/
+
+
+
+
+#refreshStockButton, #addDisplayCase, #addDisplayTray{
+    -fx-border-color: rgb(120, 17, 17);
+    -fx-border-width: 2px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-insets: 0, 0 0 0 2;
+
+    /*-fx-background-color: linear-gradient(#ff0000, #881200);*/
+
+    -fx-background-color: linear-gradient(rgba(172, 172, 172, 0.82) 1%, rgb(43, 43, 43) 40%, #272323 100%);
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.85), 5, 0.0, 0, 1);*/
+}
+
+    /*.redButton:pressed {*/
+
+    /*-fx-background-color: linear-gradient(rgba(255, 225, 174, 0.82) 1%, rgb(171, 66, 50) 40%, #ff4c4c 100%);*/
+    /*!*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.85), 5, 0.0, 0, 1);*!*/
+    /*}*/

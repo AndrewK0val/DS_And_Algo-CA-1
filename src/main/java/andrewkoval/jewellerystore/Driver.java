@@ -23,13 +23,6 @@ public class Driver extends Application {
 
 
 
-
-//        ListView listView = new ListView();
-//
-//        listView.getItems().add("nvdnjd");
-//        listView.getItems().add("nvdnjd");
-//        listView.getItems().add("nvdnjd");
-
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

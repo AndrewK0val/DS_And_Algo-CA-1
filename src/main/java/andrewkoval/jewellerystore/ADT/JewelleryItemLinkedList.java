@@ -57,19 +57,19 @@ public class JewelleryItemLinkedList {
     }
 
 
-    public void deleteElement(JewelleryItem e)
+    public void remove(int index)
     {
+        index = listLenght() - index - 1;
+        if(index == 0) {
+        head = head.next;
+        }else{
+        LinkNode<JewelleryItem> currentSpot = head;
+        for(int i=0; i<index - 1; i++){
+            currentSpot = currentSpot.next;
 
-        LinkNode fn = head;
-        int i = 0;
-        while(i<4 && fn!=null) {
-            fn = fn.next;
-            i++;
+            }
+            currentSpot.next = currentSpot.next.next;
         }
-        if(fn!=null && fn.next!=null) {
-            fn.next=fn.next.next;
-        }
-
 
     }
 }

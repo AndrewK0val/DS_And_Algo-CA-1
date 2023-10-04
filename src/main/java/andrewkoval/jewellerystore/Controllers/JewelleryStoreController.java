@@ -1,11 +1,10 @@
 package andrewkoval.jewellerystore.Controllers;
-import andrewkoval.jewellerystore.ADT.DisplayCaseLinkedList;
-import andrewkoval.jewellerystore.ADT.DisplayTrayLinkedList;
-import andrewkoval.jewellerystore.ADT.LinkNode;
+import andrewkoval.jewellerystore.ADT.*;
 import andrewkoval.jewellerystore.Driver;
 import andrewkoval.jewellerystore.Models.DisplayCase;
 import andrewkoval.jewellerystore.Models.DisplayTray;
 import andrewkoval.jewellerystore.Models.JewelleryItem;
+import andrewkoval.jewellerystore.Models.Material;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,15 +21,19 @@ import javafx.scene.layout.AnchorPane;
 public class JewelleryStoreController implements Initializable {
     @FXML public TextArea JewelleryItemDescriptionInput;
     @FXML private AnchorPane overviewItemMenu;
-    @FXML private TextField searchStock, JewelleryItemPriceInput, JewelleryItemImageUrlInput, JewelleryItemQuantityInput;
-    @FXML private ComboBox lightingSelection, caseTypeSelection,JewelleryItemBrandNameComboBox,displayTrayMatColourComboBox, displayTrayDimensionsComboBox, JewelleryItemTypeComboBox, JewelleryItemTargetGenderComboBox;
+    @FXML private TextField searchStock, JewelleryItemPriceInput, JewelleryItemImageUrlInput, JewelleryItemQuantityInput, ItemMaterialWeightInGrams;
+    @FXML private ComboBox lightingSelection, caseTypeSelection,JewelleryItemBrandNameComboBox,displayTrayMatColourComboBox,
+    displayTrayDimensionsComboBox, JewelleryItemTypeComboBox, JewelleryItemTargetGenderComboBox, ItemSelectMaterialDropDown, ItemSelectQualityDropDown;
     @FXML private ListView<DisplayCase> displayCaseListViewInTrayTab;
     @FXML private ListView<DisplayTray> displayTrayListView, displayTrayListViewInItemTab;
     @FXML private TreeView<Object> overviewTreeview;
-    @FXML private Label displayCaseIdInTrayTab, JewelleryItemIdInItemsTab;
-    @FXML private ListView<JewelleryItem> JewelleryItemListView;
+    @FXML private Label displayCaseIdInTrayTab, JewelleryItemIdInItemsTab, itemBarandAndTypeInMaterialTab;
+    @FXML private ListView<JewelleryItem> JewelleryItemListView, JewelleryItemListVIewInMaterialTab;
+    @FXML private ListView<Material> itemMaterialListView;
     private DisplayCase chosenCase;
     private DisplayTray chosenTray;
+
+    private JewelleryItem chosenItem;
 
 
     @Override
@@ -44,12 +47,13 @@ public class JewelleryStoreController implements Initializable {
         JewelleryItemTypeComboBox.getItems().addAll("Watch", "Ring", "Earrings", "Necklace", "Bracelet", "Piercing");
         JewelleryItemTargetGenderComboBox.getItems().addAll("Male", "Female", "Unisex");
         JewelleryItemBrandNameComboBox.getItems().addAll("Svarowski", "Bea Bongiasca", "Pandora", "Sauer", "Fernando Jorge", "Ondyn", "Viltier", "Chanel", "Cartier");
-
+        ItemSelectMaterialDropDown.getItems().addAll("Gold", "Silver", "Platinum", "Vibranium", "Diamond", "Ruby", "Emerald", "Sapphire");
+        ItemSelectQualityDropDown.getItems().addAll("10", "15", "20", "24");
 //      TreeItem<String> rootItem = new TreeItem<>(Driver.displayCaseLinkList);
 //      overviewTreeview.setRoot(rootItem);
 
 //        txtID.getText();
-        overviewItemMenu.setVisible(false);
+//        overviewItemMenu.setVisible(false);
     }
 
 
@@ -78,7 +82,7 @@ public class JewelleryStoreController implements Initializable {
             DisplayTray dt = new DisplayTray(id, matcol, dimensions);
             chosenCase.trays.addElement(dt);
            // System.out.println(Driver.displayTrayLinkList.head.getContents());
-            chosenCase.trays.addToListView(displayTrayListView);
+//            chosenCase.trays.addToListView(displayTrayListView);  ---redundant
             chosenCase.trays.addToListView(displayTrayListViewInItemTab);
         }
 
@@ -101,13 +105,17 @@ public class JewelleryStoreController implements Initializable {
     //        chosenCase.trays.addToListView(displayTrayListViewInItemTab);
         }
 
-//        public void addJewelleryItemMaterial(){
-////        material, weight, quality
-//            String material =
-//
-//
-//        }
+        public void addJewelleryItemMaterial(){
+//        material, weight, quality
+            String material = ItemSelectMaterialDropDown.getSelectionModel().getSelectedItem().toString();
+            String weightInGramsInStringFormat = ItemMaterialWeightInGrams.getText();
+            int weightInGrams = Integer.valueOf(weightInGramsInStringFormat);
+            String quality = ItemSelectQualityDropDown.getSelectionModel().getSelectedItem().toString();
 
+            Material mat = new Material(material, weightInGrams, quality);
+            chosenItem.materials.addElement(mat);
+            chosenItem.materials.addToListView(itemMaterialListView);
+        }
 
     public void searchItem(String searchTerm, String value)
     {
@@ -147,30 +155,8 @@ public class JewelleryStoreController implements Initializable {
 
 
     public void deleteJewelleryItem() {
-    overviewTreeview.getSelectionModel().getSelectedItem();
-        LinkNode<DisplayCase> temp = Driver.cases.head;
-
-        while(temp!=null){
-            LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
 
 
-            while(temp2!=null){
-                LinkNode<JewelleryItem> temp3 = temp2.getContents().items.head;
-
-
-                while(temp3!=null){
-                    if(overviewTreeview.getSelectionModel().getSelectedItem().equals(temp3.next))
-                    {
-
-                    }
-                }
-
-                    temp3=temp3.next;
-                }
-
-                temp2=temp2.next;
-            }
-            temp=temp.next;
 
     }
 
@@ -203,6 +189,10 @@ public class JewelleryStoreController implements Initializable {
             overviewTreeview.setShowRoot(false);
         }
 
+
+//      The three methods below are used to tell the add methods for each model which item the user
+//      selected from the list view menu.
+//      They also change the value of the label for each models list view to indicate which parent object is selected.
         public void chooseCase(){
             chosenCase = displayCaseListViewInTrayTab.getSelectionModel().getSelectedItem();
             displayCaseIdInTrayTab.setText("Case: " + chosenCase.getCaseID());
@@ -215,6 +205,13 @@ public class JewelleryStoreController implements Initializable {
             chosenTray.items.addToListView(JewelleryItemListView);
         }
 
+        public void chooseItem(){
+            chosenItem = JewelleryItemListVIewInMaterialTab.getSelectionModel().getSelectedItem();
+            //brandName+ItemType
+            itemBarandAndTypeInMaterialTab.setText(chosenItem.getName()+ " " + chosenItem.getType());
+            chosenItem.materials.addToListView(itemMaterialListView);
+
+        }
 
 //  call this method when you change to jewelleryItem tab
 //this method loops through every tray in each case and adds the toString of each tray to displayTrayListViewInItemTab
@@ -226,6 +223,23 @@ public class JewelleryStoreController implements Initializable {
                 LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
                 while(temp2!=null){
                     displayTrayListViewInItemTab.getItems().add(temp2.getContents());
+                    temp2=temp2.next;
+                }
+                temp=temp.next;
+            }
+        }
+
+        public void listEveryItem() {
+            JewelleryItemListVIewInMaterialTab.getItems().clear();
+            LinkNode<DisplayCase> temp = Driver.cases.head;
+            while(temp != null) {
+                LinkNode<DisplayTray> temp2 = temp.getContents().trays.head;
+                while(temp2 != null){
+                    LinkNode<JewelleryItem> temp3 = temp2.getContents().items.head;
+                    while(temp3!=null){
+                        JewelleryItemListVIewInMaterialTab.getItems().add(temp3.getContents());
+                        temp3=temp3.next;
+                    }
                     temp2=temp2.next;
                 }
                 temp=temp.next;
@@ -266,6 +280,22 @@ public class JewelleryStoreController implements Initializable {
 
 
         }
+
+    public void showItemPropertiesInOverviewTab()
+    {
+        overviewItemMenu.setVisible(true);
+//        for(every display case)
+//        {
+//        displayCase.listAllDispvlayTrays();
+//        }
+//      Output should look like a tree
+//
+//  Case-      case ID, case Type, Lighting
+//  Tray-          Tray ID, Inlay material color, tray dimensions (cm)
+//  Jewellery-         name, description, type (ring, watch, necklace, etc. ), target gender, image(url), retail price
+//  Material/component-      name/type(gold, platinum, diamond,emerald,silver,ruby,), description, quantity, quality(karat, carat)
+
+    }
 
     public void save() throws Exception {
             XStream xstream = new XStream(new DomDriver());

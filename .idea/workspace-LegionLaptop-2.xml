@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92606d1d-6882-46c0-bfec-1a5e3b6d0edb" name="Changes" comment="Added minor tweaks to toString outputs in each model, trying to implement delete and search functionality to jewelery items linked list">
+      <change afterPath="$PROJECT_DIR$/src/main/test/Models/DisplayCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/Models/DisplayTrayTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/Models/JewelleryItemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/ADT/JewelleryItemLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/ADT/JewelleryItemLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Controllers/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Controllers/JewelleryStoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Models/JewelleryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Models/JewelleryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Models/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/andrewkoval/jewellerystore/Models/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/andrewkoval/jewellerystore/7IsK.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/andrewkoval/jewellerystore/stylesheet1.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/andrewkoval/jewellerystore/stylesheet1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/andrewkoval/jewellerystore/view2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/andrewkoval/jewellerystore/view2.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IgCwSWb3fzNGVj3wPOdzcHB3l1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/andre/OneDrive - Waterford Institute of Technology/Data Structures/github/CA1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92606d1d-6882-46c0-bfec-1a5e3b6d0edb" name="Changes" comment="" />
+      <created>1670594079818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670594079818</updated>
+      <workItem from="1670594081282" duration="1072000" />
+      <workItem from="1670614346609" duration="4253000" />
+      <workItem from="1670620003778" duration="8707000" />
+      <workItem from="1670673743870" duration="12452000" />
+      <workItem from="1670760029184" duration="7823000" />
+      <workItem from="1670799394768" duration="89000" />
+      <workItem from="1670840922149" duration="271000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added minor tweaks to toString outputs in each model, trying to implement delete and search functionality to jewelery items linked list">
+      <created>1670676284163</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670676284163</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added minor tweaks to toString outputs in each model, trying to implement delete and search functionality to jewelery items linked list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added minor tweaks to toString outputs in each model, trying to implement delete and search functionality to jewelery items linked list" />
+  </component>
+</project>
